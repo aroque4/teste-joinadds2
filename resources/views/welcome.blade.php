@@ -9,126 +9,17 @@
         <title>Banco BMG</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../assets/css/template.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{{URL('/assets/css/home')}}/template.css">
+{{--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>--}}
+
+        <link rel="shortcut icon" href="{{URL('/assets/img/')}}/indice.png">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Montserrat:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
     </head>
-    <style>
-            body {
-                margin: 0;
-                font-family: lato,sans-serif;
-                font-size: 14px;
-                line-height: 1.42857143;
-                color: #333;
-                background-color: #fff;
-            }
-            .fundo{
-                display: flex;
-                min-height: 224vh;
-                height: 224vh;
-                width: 100%;
-                align-items: center;
-                position: relative;
-            }
-            .info-direita {
-                background: linear-gradient(to right,#fa6300,#fa6300);
-                min-height: 100vh;
-                height: 100%;
-                width: 45%;
-                float:left;
-            }
-            .detalhes{
-                padding-left: 65px;
-                position: absolute;
-                top: 13%;
-                color: #fff;
-                width:44%;
-            }
-            .detalhes p{
-                font-family: sans-serif;
-                font-weight: 700;
-                font-size: 35px;
-                line-height: 1.25;
-                margin-bottom: 20px;
-            }
-            .detalhes label{
-                font-size: 21px;
-                font-weight: 400;
-                line-height: 1.25;
-                letter-spacing:.3px;
-                font-family: sans-serif;
-            }
-            .info-esquerda{
-                background-color: #f4f5f6;
-                min-height: 100vh;
-                height: 100%;
-                width: 50%;
-                float:left;
-            }
-            .logo {
-                width: auto;
-                height: 85px;
-                margin-bottom: 20px;
-            }
-            .info-esquerda h3 {
-                margin: 30px 0;
-                font-size: 43px;
-                font-weight: 700;
-                color: #3f3e3e;
-                font-family: sans-serif;
-                line-height: 1.1;
-            }
-            .info-esquerda p{
-                font-size: 16px;
-                font-weight: 400;
-                color: #9ca2ab;
-                margin-bottom: 20px;
-            }
-            .info-esquerda label{
-                font-size: 11px;
-                text-align: center;
-                width: 100%;
-            }
-            .btn_laranja{
-                background-image: linear-gradient(104deg,#fa6300,#fa6300);
-                border: 0px;
-                font-weight: 700;
-                margin: 26px 1px 26px 1px;
-                border-radius: 35px;
-            }
-            .input_margem {
-                border-radius: 35px;
-            }
-            .informacoes_complementar{
-                margin-right: 0 !important;
-                margin-left: 0 !important;
-            }
-            .texto_info{
-                font-size: 11px;
-                text-align: justify;
-                color: #9ca2ab;
-            }
-        </style>    
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
-        <script>
-            $(document).ready(function () { 
-                var $seuCampoCpf = $("#cpf_inicio");
-                $seuCampoCpf.mask('000.000.000-00', {reverse: true});
-
-                var $seuCampoCpf = $("#telefone");
-                $seuCampoCpf.mask('(00) 00000-0000', {reverse: true});
-
-                $('.dados_complementares').css('display','none');
-                $( "#btn_continuar_dados" ).click(function() {
-                    $('.dados_complementares').css('display','block');
-                });
-            });
-        </script>
     <body>
         <div class="fundo">
             <div class="info-direita">
                 <div class="detalhes">
-                    <img class="logo" src="https://contadigital.kontaazul.co/img/LOGO_BMG3.svg">
+                    <img class="logo" src="{{URL('/assets/img/')}}/LOGO_BMG3.svg">
                     <br class="clear">
                     <p>Conta digital grátis Bmg</p>
                     <label>Tem tudo o que você precisa e ainda te ajuda a guardar dinheiro.</label>
@@ -145,14 +36,15 @@
                             <input required="" id="cpf_inicio" name="cpf_inicio" maxlength="14" class="form-control form-rounded input_margem" placeholder="CPF">
                             <div class="dados_complementares">
                                 <br>
-                                <input required="" id="cpf_inicio" name="nome" maxlength="14" class="form-control form-rounded input_margem" placeholder="Nome">
+                                <input required="" id="nome" name="nome" maxlength="14" class="form-control form-rounded input_margem" placeholder="Nome">
                                 <br>
                                 <input required="" id="telefone" name="telefone" maxlength="14" class="form-control form-rounded input_margem" placeholder="Telefone">
                                 <br>
                                 <input required="" id="email" name="email" maxlength="14" class="form-control form-rounded input_margem" placeholder="E-mail">
                             </div>
                             <button type="button" class="btn btn-primary btn-lg btn-block btn_laranja" id="btn_continuar_dados">Continuar</button>
-                            <label><img src="https://contadigital.kontaazul.co/img/ambiente-seguro.svg"> Ambiente seguro e confidencial </label>
+                            <button type="button" class="btn btn-primary btn-lg btn-block btn_laranja" id="enviar_dados">Enviar</button>
+                            <label><img src="{{URL('/assets/img/')}}/ambiente-seguro.svg"> Ambiente seguro e confidencial </label>
                         </form>
                         </div>
                         <div class="col-sm-2"></div>
@@ -161,10 +53,10 @@
                     <br><br><br><br>
                         <div class="col-sm-3"></div>
                         <div class="col-sm-3">
-                            <img src="https://contadigital.kontaazul.co/img/logo_ka_verde.png" style="margin-bottom: 10px; opacity: 1;" width="140">
+                            <img src="{{URL('/assets/img/')}}/logo_ka_verde.png" style="margin-bottom: 10px; opacity: 1;" width="140">
                         </div>
                         <div class="col-sm-3">
-                            <img src="https://contadigital.kontaazul.co/img/selo2.png" style="margin-bottom: 10px; opacity: 1;" width="140">
+                            <img src="{{URL('/assets/img/')}}/selo2.png" style="margin-bottom: 10px; opacity: 1;" width="140">
                         </div>
                     </div>
                     <div class="row informacoes_complementar">
@@ -173,10 +65,42 @@
                             BANCO BMG S.A. é instituição financeira autorizada pelo Banco Central do Brasil. O mero envio do cadastro não implica a abertura da conta eletrônica e a contratação de produtos e serviços oferecidos. A rentabilidade obtida no passado não representa garantia de rentabilidade futura. Os serviços disponíveis na plataforma são facultativos e dependem de prévia concordância do cliente em ambiente eletrônico. Sobre determinadas operações incidirá IOF, conforme previsto na legislação vigente. Consulte o valor mínimo, remuneração, prazos, tributação e demais regras aplicáveis aos produtos em www.bancobmg.com.br. Condições sujeitas a alteraçõso sem aviso prévio. Esta instituição é aderente ao código ANBIMA de regulação e melhores práticas para atividade de distribuição de produtos de investimento no varejo II. SAC: 0800 9799 099. Deficientes auditivos ou de fala: 0800 9797 333. Ouvidoria: 0800 723 2044.
                             <br><br>               
                             Somos uma plataforma digital que atua como correspondente Bancário e Sociedade de Crédito Direto para facilitar o processo de contratação de empréstimos. Como Correspondente Bancário, seguimos as diretrizes da Resolução nº 3.954 e como Sociedade de Crédito Direto a resolução nº 4.656, ambas do Banco Central do Brasil. A DF Baccan Serviços atua como correspondente bancário do Banco BMG S/A CNPJ 61.186.680/0001-74. Maiores detalhes consulte o 
-                            <a href="https://contadigital.kontaazul.co/Termo_de_Uso_e_Politica_de_privacidade.pdf" download="" style="color: #f28502; text-decoration: underline;">Termo de Uso e Política de Privacidade.</a>
+                            <a href="{{URL('/assets/docs/')}}/Termo_de_Uso_e_Politica_de_privacidade.pdf" download="" style="color: #f28502; text-decoration: underline;">Termo de Uso e Política de Privacidade.</a>
                         </div>
                     </div>
             </div>
         </div>
     </body>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/jquery.mask.js"></script>
+    <!-- Bootstrap js-->
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/bootstrap/popper.min.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/bootstrap/bootstrap.js"></script>
+    <!-- feather icon js-->
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- Sidebar jquery-->
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/sidebar-menu.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/config.js"></script>
+    <!-- Plugins JS start-->
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/chart/chartist/chartist.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/chart/chartist/chartist-plugin-tooltip.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/chart/knob/knob.min.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/chart/knob/knob-chart.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/chart/apex-chart/apex-chart.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/chart/apex-chart/stock-prices.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/notify/bootstrap-notify.min.js"></script>
+    <!-- <script src="{{URL('/assets/bibliotecas')}}/assets/js/dashboard/default.js"></script> -->
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/notify/index.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/datepicker/date-picker/datepicker.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/datepicker/date-picker/datepicker.en.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/datepicker/date-picker/datepicker.custom.js"></script>s
+
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/datatable/datatables/datatable.custom.js"></script>
+
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/select2/select2.full.min.js"></script>
+    <script src="{{URL('/assets/bibliotecas')}}/assets/js/select2/select2-custom.js"></script>
+
+    <script src="{{URL('/assets/js')}}/home/home.js"></script>
 </html>
